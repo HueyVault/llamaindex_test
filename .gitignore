@@ -1,0 +1,32 @@
+# Python 관련
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+
+# 가상 환경
+venv/
+.env
+
+# Streamlit 관련
+.streamlit/
+
+# Vector DB 저장소
+vector_db/
+
+# 문서 저장소
+documents/
+
+# Jupyter Notebook 관련
+.ipynb_checkpoints/
+
+# IDE 관련
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# 기타
+*.log
+*.tmp
