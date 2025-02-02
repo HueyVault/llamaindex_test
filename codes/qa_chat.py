@@ -39,6 +39,11 @@ def initialize_index():
         index = VectorStoreIndex.from_documents(documents)
         index.storage_context.persist(persist_dir=vector_db_path)
     
+        # # 로드한 문서들 출력
+        # print(f"Number of documents loaded: {len(documents)}")
+        # for doc in documents:
+        #     print(doc)
+
     return index
 
 def main():
@@ -46,7 +51,16 @@ def main():
     
     # 인덱스 초기화
     index = initialize_index()
-    
+
+    # # query_engine 생성
+    # query_engine = index.as_query_engine()
+
+    # # 쿼리 실행 예시
+    # query = "문서 목록을 확인하고 싶습니다."
+    # response = query_engine.query(query)
+
+    # print(response)  # 쿼리 결과 출력
+
     # 채팅 엔진 생성
     chat_engine = index.as_chat_engine(
         verbose=True,
@@ -77,10 +91,6 @@ def main():
             st.markdown(response.response)
             st.session_state.messages.append({"role": "assistant", "content": response.response})
 
-
-'''
-https://github.com/Jiayi-Pan/TinyZero/blob/main/tests/verl/utils/dataset/test_rl_dataset.py
-'''
 
 
 if __name__ == "__main__":
